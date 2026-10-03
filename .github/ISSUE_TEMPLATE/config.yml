@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Community Discussions & Questions
+    url: https://github.com/CodeMaverick-143/adulting/discussions
+    about: Ask questions, share budgeting tips, or discuss general architecture ideas.
+  - name: 🔒 Report a Security Vulnerability
+    url: https://github.com/CodeMaverick-143/adulting/security/policy
+    about: Read our security policy and contact us privately.

@@ -1,0 +1,46 @@
+name: "✨ Feature Request"
+description: "Suggest an idea or feature improvement for Adulting"
+title: "[FEATURE] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting a feature for Adulting! We value thoughtful proposals that enhance financial clarity while adhering to our local-first, privacy-by-default architecture.
+  - type: textarea
+    id: problem_statement
+    attributes:
+      label: Is your feature request related to a problem?
+      description: A clear description of what the pain point or problem is.
+      placeholder: "e.g., I'm always frustrated when I want to export my monthly budget breakdown to CSV for offline spreadsheets..."
+    validations:
+      required: true
+  - type: textarea
+    id: proposed_solution
+    attributes:
+      label: Describe the Solution You'd Like
+      description: A clear and concise description of what you want to happen.
+      placeholder: "Add an 'Export to CSV' button in the Settings/History tab that dumps transactions and occurrences to local device storage."
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives_considered
+    attributes:
+      label: Alternatives Considered
+      description: Describe any alternative solutions or features you've considered.
+    validations:
+      required: false
+  - type: textarea
+    id: ui_ux_notes
+    attributes:
+      label: UI / UX Considerations
+      description: Any mockups, references, or Material 3 components that could fit this feature.
+    validations:
+      required: false
+  - type: checkboxes
+    id: privacy_check
+    attributes:
+      label: Architectural Compliance
+      options:
+        - label: I understand Adulting is strictly local-first and does not transmit financial data to external servers.
+          required: true
