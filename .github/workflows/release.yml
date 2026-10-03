@@ -39,12 +39,17 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
 
-      - name: Decode Release Keystore (if secret provided)
-        if: env.KEYSTORE_BASE64 != ''
+      - name: Configure Release Keystore
         env:
           KEYSTORE_BASE64: ${{ secrets.RELEASE_KEYSTORE_BASE64 }}
         run: |
-          echo "$KEYSTORE_BASE64" | base64 --decode > release.keystore
+          if [ -n "$KEYSTORE_BASE64" ]; then
+            echo "Decoding release keystore from secrets..."
+            echo "$KEYSTORE_BASE64" | base64 --decode > release.keystore
+          elif [ ! -f release.keystore ]; then
+            echo "Generating release keystore for CI signing..."
+            keytool -genkey -v -keystore release.keystore -alias adulting -keyalg RSA -keysize 2048 -validity 10000 -storepass adulting123 -keypass adulting123 -dname "CN=Adulting, OU=Adulting, O=Adulting, L=Unknown, ST=Unknown, C=US"
+          fi
 
       - name: Make gradlew executable
         run: chmod +x ./gradlew
