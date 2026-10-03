@@ -13,8 +13,8 @@
 /captures
 .externalNativeBuild
 .cxx
-local.properties
-.env
+.env*
+!.env.example
 debug.keystore
 *.keystore
 *.jks

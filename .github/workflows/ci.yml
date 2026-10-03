@@ -31,8 +31,10 @@ jobs:
 
       - name: Prepare Secrets Configuration
         run: |
-          if [ ! -f .env ]; then
+          if [ -f .env.example ]; then
             cp .env.example .env
+          else
+            touch .env
           fi
 
       - name: Make gradlew executable
