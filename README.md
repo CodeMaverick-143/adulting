@@ -226,10 +226,24 @@ All standard Gradle commands can be run from the command line:
 ./gradlew clean
 ```
 
-The compiled APKs will be located at:
-- Debug: `app/build/outputs/apk/debug/app-debug.apk`
-- Release: `app/build/outputs/apk/release/app-release.apk`
-- Bundle: `app/build/outputs/bundle/release/app-release.aab`
+The compiled artifacts will be located at:
+- Debug APK: `app/build/outputs/apk/debug/app-debug.apk`
+- Release APK: `app/build/outputs/apk/release/app-release.apk`
+- Release Bundle (AAB): `app/build/outputs/bundle/release/app-release.aab`
+
+### 🚀 Automated GitHub Releases (AAB Distribution)
+
+Whenever a significant change is made, you can create a release in two ways:
+
+1. **Push a Version Tag**:
+   ```bash
+   git tag v2.0.0
+   git push origin v2.0.0
+   ```
+   GitHub Actions automatically builds the `.aab` bundle and `.apk`, generates release notes from your commits, and attaches them to a new [GitHub Release](https://github.com/CodeMaverick-143/adulting/releases).
+
+2. **Manual Dispatch from GitHub Actions**:
+   Go to **Actions** → **Build & Publish Release** → click **Run workflow**, specify the version (e.g. `v2.0.0`), and trigger the release build.
 
 ---
 
